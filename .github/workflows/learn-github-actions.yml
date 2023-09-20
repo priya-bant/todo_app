@@ -6,3 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello my TestBash"
+
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: cd ./src/webapp/api && npm ci && npm run test
